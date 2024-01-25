@@ -21,182 +21,182 @@ app = Flask(__name__)
 CORS(app)
 app.config.from_object(app_config)
 Session(app)
-sessionData = {
-    "9th Grade": { 
-        "Computer": {
-            "messages": [],
-            "bot_tokens": 0,
-            "user_tokens": 0
-        },
-        "Chemistry": {
-            "messages": [],
-            "bot_tokens": 0,
-            "user_tokens": 0
-        },
-        "Physics": {
-            "messages": [],
-            "bot_tokens": 0,
-            "user_tokens": 0
-        },
-        "Biology": {
-            "messages": [],
-            "bot_tokens": 0,
-            "user_tokens": 0
-        },
-        "English": {
-            "messages": [],
-            "bot_tokens": 0,
-            "user_tokens": 0
-        },
-        "Mathematics": {
-            "messages": [],
-            "bot_tokens": 0,
-            "user_tokens": 0
-        },
-        "Urdu": {
-            "messages": [],
-            "bot_tokens": 0,
-            "user_tokens": 0
-        },
-        "Islamiyat": {
-            "messages": [],
-            "bot_tokens": 0,
-            "user_tokens": 0
-        }
-    },
-    "10th Grade": { 
-        "Computer": {
-            "messages": [],
-            "bot_tokens": 0,
-            "user_tokens": 0
-        },
-        "Chemistry": {
-            "messages": [],
-            "bot_tokens": 0,
-            "user_tokens": 0
-        },
-        "Physics": {
-            "messages": [],
-            "bot_tokens": 0,
-            "user_tokens": 0
-        },
-        "Biology": {
-            "messages": [],
-            "bot_tokens": 0,
-            "user_tokens": 0
-        },
-        "English": {
-            "messages": [],
-            "bot_tokens": 0,
-            "user_tokens": 0
-        },
-        "Mathematics": {
-            "messages": [],
-            "bot_tokens": 0,
-            "user_tokens": 0
-        },
-        "Pak Studies": {
-            "messages": [],
-            "bot_tokens": 0,
-            "user_tokens": 0
-        },
-        "Sindhi": {
-            "messages": [],
-            "bot_tokens": 0,
-            "user_tokens": 0
-        }
-    },
-    "11th Grade": { 
-        "Computer": {
-            "messages": [],
-            "bot_tokens": 0,
-            "user_tokens": 0
-        },
-        "Chemistry": {
-            "messages": [],
-            "bot_tokens": 0,
-            "user_tokens": 0
-        },
-        "Physics": {
-            "messages": [],
-            "bot_tokens": 0,
-            "user_tokens": 0
-        },
-        "Biology": {
-            "messages": [],
-            "bot_tokens": 0,
-            "user_tokens": 0
-        },
-        "English": {
-            "messages": [],
-            "bot_tokens": 0,
-            "user_tokens": 0
-        },
-        "Mathematics": {
-            "messages": [],
-            "bot_tokens": 0,
-            "user_tokens": 0
-        },
-        "Urdu": {
-            "messages": [],
-            "bot_tokens": 0,
-            "user_tokens": 0
-        },
-        "Islamiyat": {
-            "messages": [],
-            "bot_tokens": 0,
-            "user_tokens": 0
-        }
-    },
-    "12th Grade": { 
-        "Computer": {
-            "messages": [],
-            "bot_tokens": 0,
-            "user_tokens": 0
-        },
-        "Chemistry": {
-            "messages": [],
-            "bot_tokens": 0,
-            "user_tokens": 0
-        },
-        "Physics": {
-            "messages": [],
-            "bot_tokens": 0,
-            "user_tokens": 0
-        },
-        "Biology": {
-            "messages": [],
-            "bot_tokens": 0,
-            "user_tokens": 0
-        },
-        "English": {
-            "messages": [],
-            "bot_tokens": 0,
-            "user_tokens": 0
-        },
-        "Mathematics": {
-            "messages": [],
-            "bot_tokens": 0,
-            "user_tokens": 0
-        },
-        "Urdu": {
-            "messages": [],
-            "bot_tokens": 0,
-            "user_tokens": 0
-        },
-        "Pak Studies": {
-            "messages": [],
-            "bot_tokens": 0,
-            "user_tokens": 0
-        }
-    }
-}
+# sessionData = {
+#     "9th Grade": { 
+#         "Computer": {
+#             "messages": [],
+#             "bot_tokens": 0,
+#             "user_tokens": 0
+#         },
+#         "Chemistry": {
+#             "messages": [],
+#             "bot_tokens": 0,
+#             "user_tokens": 0
+#         },
+#         "Physics": {
+#             "messages": [],
+#             "bot_tokens": 0,
+#             "user_tokens": 0
+#         },
+#         "Biology": {
+#             "messages": [],
+#             "bot_tokens": 0,
+#             "user_tokens": 0
+#         },
+#         "English": {
+#             "messages": [],
+#             "bot_tokens": 0,
+#             "user_tokens": 0
+#         },
+#         "Mathematics": {
+#             "messages": [],
+#             "bot_tokens": 0,
+#             "user_tokens": 0
+#         },
+#         "Urdu": {
+#             "messages": [],
+#             "bot_tokens": 0,
+#             "user_tokens": 0
+#         },
+#         "Islamiyat": {
+#             "messages": [],
+#             "bot_tokens": 0,
+#             "user_tokens": 0
+#         }
+#     },
+#     "10th Grade": { 
+#         "Computer": {
+#             "messages": [],
+#             "bot_tokens": 0,
+#             "user_tokens": 0
+#         },
+#         "Chemistry": {
+#             "messages": [],
+#             "bot_tokens": 0,
+#             "user_tokens": 0
+#         },
+#         "Physics": {
+#             "messages": [],
+#             "bot_tokens": 0,
+#             "user_tokens": 0
+#         },
+#         "Biology": {
+#             "messages": [],
+#             "bot_tokens": 0,
+#             "user_tokens": 0
+#         },
+#         "English": {
+#             "messages": [],
+#             "bot_tokens": 0,
+#             "user_tokens": 0
+#         },
+#         "Mathematics": {
+#             "messages": [],
+#             "bot_tokens": 0,
+#             "user_tokens": 0
+#         },
+#         "Pak Studies": {
+#             "messages": [],
+#             "bot_tokens": 0,
+#             "user_tokens": 0
+#         },
+#         "Sindhi": {
+#             "messages": [],
+#             "bot_tokens": 0,
+#             "user_tokens": 0
+#         }
+#     },
+#     "11th Grade": { 
+#         "Computer": {
+#             "messages": [],
+#             "bot_tokens": 0,
+#             "user_tokens": 0
+#         },
+#         "Chemistry": {
+#             "messages": [],
+#             "bot_tokens": 0,
+#             "user_tokens": 0
+#         },
+#         "Physics": {
+#             "messages": [],
+#             "bot_tokens": 0,
+#             "user_tokens": 0
+#         },
+#         "Biology": {
+#             "messages": [],
+#             "bot_tokens": 0,
+#             "user_tokens": 0
+#         },
+#         "English": {
+#             "messages": [],
+#             "bot_tokens": 0,
+#             "user_tokens": 0
+#         },
+#         "Mathematics": {
+#             "messages": [],
+#             "bot_tokens": 0,
+#             "user_tokens": 0
+#         },
+#         "Urdu": {
+#             "messages": [],
+#             "bot_tokens": 0,
+#             "user_tokens": 0
+#         },
+#         "Islamiyat": {
+#             "messages": [],
+#             "bot_tokens": 0,
+#             "user_tokens": 0
+#         }
+#     },
+#     "12th Grade": { 
+#         "Computer": {
+#             "messages": [],
+#             "bot_tokens": 0,
+#             "user_tokens": 0
+#         },
+#         "Chemistry": {
+#             "messages": [],
+#             "bot_tokens": 0,
+#             "user_tokens": 0
+#         },
+#         "Physics": {
+#             "messages": [],
+#             "bot_tokens": 0,
+#             "user_tokens": 0
+#         },
+#         "Biology": {
+#             "messages": [],
+#             "bot_tokens": 0,
+#             "user_tokens": 0
+#         },
+#         "English": {
+#             "messages": [],
+#             "bot_tokens": 0,
+#             "user_tokens": 0
+#         },
+#         "Mathematics": {
+#             "messages": [],
+#             "bot_tokens": 0,
+#             "user_tokens": 0
+#         },
+#         "Urdu": {
+#             "messages": [],
+#             "bot_tokens": 0,
+#             "user_tokens": 0
+#         },
+#         "Pak Studies": {
+#             "messages": [],
+#             "bot_tokens": 0,
+#             "user_tokens": 0
+#         }
+#     }
+# }
 
-mongo_client = MongoClient('mongodb+srv://HuzaifaGhori:Huzaifa1@cluster0.xa8q1tb.mongodb.net/')
-db = mongo_client['curricuai']
-user_sessions_collection = db['userSessionsData']
-board_collection = db['listedBoards']
-# get array in board_collection
+# mongo_client = MongoClient('mongodb+srv://HuzaifaGhori:Huzaifa1@cluster0.xa8q1tb.mongodb.net/')
+# db = mongo_client['curricuai']
+# user_sessions_collection = db['userSessionsData']
+# board_collection = db['listedBoards']
+# # get array in board_collection
 
 def update_subject_data(user_id, grade, subject, updated_data):
     # Update data in MongoDB
