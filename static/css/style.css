@@ -1,0 +1,201 @@
+    /* Your existing styles here */
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      background-color: hsl(235, 46%, 20%); /* Reddish brown background */
+      color: white;
+      overflow: hidden;
+    }
+    #container{
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    #navbar {
+      width: 20%;
+      height: 100vh;
+      background-color: hsl(235, 46%, 20%); /* Reddish brown navbar */
+      float: left;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    #chat {
+      height: 90vh;
+      width: 90%;
+      background-color: #040515;
+      float: left;
+      border-radius: 15px;
+      padding: 20px;
+      margin: 20px;
+      overflow-y: auto;
+      box-sizing: border-box;
+      border-right: 5px solid #040515; /* Brownish outline */
+    }
+    * {
+      scrollbar-width: thin;
+      scrollbar-color: #67656B #DCDCDC;
+    }
+    
+    /* Chrome, Edge and Safari */
+    *::-webkit-scrollbar {
+      height: 7px;
+      width: 7px;
+    }
+    *::-webkit-scrollbar-track {
+      border-radius: 5px;
+      background-color: #DCDCDC;
+    }
+    
+    *::-webkit-scrollbar-track:hover {
+      background-color: #C9C9C9;
+    }
+    
+    *::-webkit-scrollbar-track:active {
+      background-color: #BDBDBD;
+    }
+    
+    *::-webkit-scrollbar-thumb {
+      border-radius: 6px;
+      background-color: #67656B;
+    }
+    
+    *::-webkit-scrollbar-thumb:hover {
+      background-color: #67656B;
+    }
+    
+    *::-webkit-scrollbar-thumb:active {
+      background-color: #87848C;
+    }
+  
+    .message strong{
+      margin-bottom: 5px;
+    }
+    .message {
+        margin-bottom: 10px;
+        margin-top: 10px;
+        display: flex;
+        flex-direction: column; 
+        align-items: flex-start;
+        
+    }
+    
+
+    .user-message {
+      background-color: hsl(234, 47%, 9%); /* Light blue user message */
+      padding: 10px;
+      border-radius: 5px;
+      word-wrap: break-word;
+    }
+
+    .bot-message {
+      background-color: hsl(235, 46%, 20%); /* Saddle brown bot message */
+      padding: 10px;
+      color: white;
+      border-radius: 5px;
+      word-wrap: break-word;
+    }
+
+    #input-container {
+      margin-top: auto;
+      display: flex;
+      height: 50px;
+      width: 90%;
+      justify-content: space-between;
+      align-items: center;
+      /* padding: 10px; */
+      /* box-sizing: border-box; */
+      /* position: relative;
+      top: 550px; */
+    }
+
+    #prompt {
+      width: 95%;
+    margin: 5px;
+      padding: 8px;
+      border: 1px solid #73138b; /* Brownish border */
+      border-radius: 4px;
+    }
+
+    #send-btn {
+      width: 28%;
+      background-color: #5c4caf; /* Green button */
+      color: white;
+      padding: 8px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .generate-image-btn {
+      background-color: #874caf; /* Green button */
+      color: white;
+      padding: 6px 10px;
+      border: none;
+      border-radius: 4px;
+      margin-top: 5px;
+      cursor: pointer;
+     }
+     .chat-container{
+        width: 100%;
+        /* background-color: #FFFFFF; */
+        background-color: hsl(227, 47%, 11%); /* Light blue user message */
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+     }
+     .logout-btn{
+      position: absolute;
+      bottom: 10px;
+     }
+     .sessions{
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+     }
+     .isLocked {
+      /* Add your existing styles here */
+  
+      /* Add styles to make the card non-clickable */
+      pointer-events: none;
+      cursor: default;
+  
+      /* Add a dark overlay */
+      position: relative;
+  }
+  
+  .isLocked::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 90%;
+      background-color: rgba(0, 0, 0, 0.5); /* Adjust the alpha value for the darkness */
+      border-radius: 10px;
+  }
+  
+  /* Style for "Coming soon" text */
+  .isLocked::after {
+      content: 'Coming soon';
+      position: absolute;
+      text-align: center;
+      top: 60%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
+      font-size: 30px; /* Adjust the font size */
+      font-weight: 500;
+      z-index: 0;
+  }
+  

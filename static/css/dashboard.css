@@ -1,0 +1,334 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500&display=swap');
+
+*{
+    font-family: "Rubik",sans-serif;
+}
+body{
+    background-color:  hsl(226, 43%, 10%);
+}
+.isLocked {
+    /* Add your existing styles here */
+
+    /* Add styles to make the card non-clickable */
+    pointer-events: none;
+    cursor: default;
+
+    /* Add a dark overlay */
+    position: relative;
+}
+
+.isLocked::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Adjust the alpha value for the darkness */
+    border-radius: 10px;
+}
+
+/* Style for "Coming soon" text */
+.isLocked::after {
+    content: 'Coming soon';
+    position: absolute;
+    text-align: center;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 30px; /* Adjust the font size */
+    font-weight: 500;
+}
+
+.main{
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 100px;
+}
+.div1{
+    position: relative;
+    z-index: 2;
+    background-color: hsl(235, 45%, 61%);
+    width: 215px;
+    height: 280px;
+    border-radius: 10px;
+    padding: 5px;
+}
+.banner{
+    position: relative;
+    /* top: 10px; */
+    /* left: 10px; */
+    width: 90%;
+    height: 50px;
+    margin: 10px auto;
+    background-color: hsl(236, 100%, 87%);
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+}
+.purs{
+    font-size: 14px;
+    color: rgb(190,194,242);
+}
+.nme{
+    font-weight: 300;
+    color: white;
+}
+.img > img{
+    width: 70px;
+    position: relative;
+    left: 20px;
+    top: 20px;
+    border: solid 2px rgb(255, 255, 255);
+    border-radius: 100px;
+}
+.info{
+    margin-top: 45px;
+    margin-left: 20px;
+}
+.opts{
+    border-radius: 10px;
+    height: 165px;
+    background-color: hsl(235, 46%, 20%);
+    width: 215px;
+}
+.opts li{
+    list-style: none;
+
+}
+.lists{
+    margin: -12px 0px;
+    display: flex;
+    flex-direction: column;
+    padding-left: 20px;
+    padding-top: 10px;
+}
+.lists li{
+    padding: 10px 0px;
+}
+.lists li a{
+    font-weight: 300;
+    color: rgb(121, 122, 186);
+}
+.current{
+    font-weight: 300 !important;
+    font-size: 32px;
+}
+.lists li a:hover{
+    text-decoration: none;
+    color: rgb(248, 251, 255);
+}
+.divs{
+    display: flex;
+    
+}
+.dotdotdot{
+    float: right;
+    position: relative;
+    top: 11px;
+    right: 8px;
+}
+.dotdotdot:hover{
+    filter: grayscale(100%) brightness(200%);
+}
+.head{
+    position: relative;
+    top: 18px;
+    font-weight: 500;
+    /* right: 8px; */
+}
+.times{
+    position: relative;
+    left: 13px;
+    font-weight: 400;
+    font-size: 40px;
+}
+.lastime{
+    position: relative;
+    left: 15px;
+    font-weight: 500;
+    font-size: 12px;
+}
+.imgcard{
+    width: 215px;
+    background-color: violet;
+    background-repeat: no-repeat;
+    background-position: 120px;
+    height: 45px;
+    position: relative;
+    top: 10px;
+    z-index: -1;
+    border-radius: 10px 10px 0px 0px;
+}
+.imgcard1{
+    background-color: hsl(15, 80%, 24%);
+    background-image: url(/static/icons/icon-study.svg);
+}
+.imgcard2{
+    background-color: hsl(311, 73%, 24%);
+    background-image: url(/static/icons/icon-study.svg);
+}
+.imgcard3{
+    background-color: hsl(348, 58%, 22%);
+    background-image: url(/static/icons/icon-study.svg);
+}
+.imgcard4{
+    background-color: hsl(15, 80%, 24%);
+    background-image: url(/static/icons/icon-study.svg);
+}
+.imgcard5{
+    background-color: hsl(311, 73%, 24%);
+    background-image: url(/static/icons/icon-study.svg);
+}
+.imgcard6{
+    background-color: hsl(348, 58%, 22%);
+    background-image: url(/static/icons/icon-study.svg);
+}
+
+.card1{
+    position: relative;
+    top: -10px;
+}
+/* .div2{
+
+} */
+.alldivs{
+    margin:0px 16px;
+}
+.scndimp{
+    margin: 23px 0px;
+}
+.allcards2{
+    display: flex;
+    margin-left: 16px;
+    
+}
+.allcards{
+    display: flex;
+    margin-left: 16px;
+    width: 1000px;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    /* remove scrollers */
+    
+}
+/* Firefox */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #67656B #DCDCDC;
+  }
+  
+  /* Chrome, Edge and Safari */
+  *::-webkit-scrollbar {
+    height: 7px;
+    width: 7px;
+  }
+  *::-webkit-scrollbar-track {
+    border-radius: 5px;
+    background-color: #DCDCDC;
+  }
+  
+  *::-webkit-scrollbar-track:hover {
+    background-color: #C9C9C9;
+  }
+  
+  *::-webkit-scrollbar-track:active {
+    background-color: #BDBDBD;
+  }
+  
+  *::-webkit-scrollbar-thumb {
+    border-radius: 6px;
+    background-color: #67656B;
+  }
+  
+  *::-webkit-scrollbar-thumb:hover {
+    background-color: #67656B;
+  }
+  
+  *::-webkit-scrollbar-thumb:active {
+    background-color: #87848C;
+  }
+  
+.opts2{
+    border-radius: 10px;
+    height: 165px;
+    background-color: hsl(235, 46%, 20%);
+    width: 215px;
+}
+.opts2:hover{
+    cursor: pointer;
+    background-color: rgb(52,57,123);
+}
+.infoclr{
+    color: white;
+}
+.lastclr{
+    color: rgb(190,194,242);
+}
+
+.active{
+    color: rgb(248, 251, 255) !important;
+}
+
+@media only screen and (max-width: 375px){
+    .divs{
+        display: block;
+        width: 100px;
+    }
+    .allcards{
+        display: block;
+        /* width: 1000px; */
+        margin-left: 0px;
+        margin-top: 30px;
+    }
+    .opts{
+        width: 315px;
+        height: 70px;
+    }
+    .opts2{
+        width: 315px;
+        height: 130px;
+    }
+    .main{
+        justify-content: left;
+    }
+    .sidediv{
+        margin-left: 16px;
+    }
+    .div1{
+        display: flex;
+        width: 315px;
+        height: 140px;
+    }
+    .imgcard{
+        width: 315px;
+    }
+    .img > img{
+        left: 20px;
+        top: 35px;
+    }
+    .info{
+        margin: 40px;
+    }
+    .info h2{
+        margin-top: 8px;
+        font-size: 23px;
+    }
+    .lists{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        padding:10px;
+        align-items: center;
+        padding-top: 20px;
+        margin-bottom: 20px;
+    }    
+    .lastime{
+        display: flex;
+        float: right;
+        margin: -50px 30px 0px 0px;
+    }
+}

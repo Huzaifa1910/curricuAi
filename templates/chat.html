@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chat Web Application</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+  <div id="container">
+    <!-- Your existing content here -->
+    <div id="navbar">
+      <!-- Navbar content goes here -->
+      <button type="button" class="btn btn-outline-light" style="position: absolute; width: 15%;">Previous Session Names</button>
+      <div class="sessions isLocked">
+
+      </div>
+      <li style="list-style-type: none;"><a href="/logout" class="logout-btn btn btn-danger">Logout</a></li>
+    </div>
+  <div class="chat-container">
+    <div id="chat">
+      <!-- Chat content goes here -->
+      <!-- <div class="message user-message">
+        User: Hello, how are you?
+      </div>
+      <div class="message bot-message">
+        Bot: I'm doing well, thank you! How can I assist you today?
+        <button class="generate-image-btn" onclick="generateImage()">Generate Image</button>
+      </div> -->
+      <!-- Input box for sending messages -->
+    </div>
+      <div id="input-container">
+       <input type="text" id="prompt" placeholder="Type your message...">
+       <button id="send-btn" onclick="getCompletion()">Send</button>
+     </div>
+    </div>
+     <!-- Input box for sending messages -->
+  
+  </div>
+  {{user_name}}
+<script src="/static/js/script.js"></script>
+</body>
+</html>

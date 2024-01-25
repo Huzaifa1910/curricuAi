@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+    <title>Bootstrap Example</title>
+    <link rel="stylesheet" href="/static/css/index.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg sticky-top blur bg-body-tertiary">
+      <div class="container-fluid container">
+        <!-- <a class="navbar-brand mx-5 navLogo" href="#"><img src="/static/icons/R-removebg-preview.png" width="100%" alt=""> CurricuAI</a> -->
+        <a class="navbar-brand mx-5" href="./index.html"  style="color: aliceblue !important;"> CurricuAI</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0 ml-0 mr-0 mx-auto">
+              <!-- <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/html/about.html">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/html/pricing.html">Pricing</a>
+            </li> -->
+            </ul>
+          <ul class="navbar-nav me-auto float-end" style="width: 200px !important;  margin-right: 10px !important">
+            <!-- <a href="/html/signup.html">
+            <li class="nav-item">
+              <button type="button" style="border-radius: 100px !important; padding: 10px; width: 100px;" id="signUp" class="btn btn-sm btn-outline-dark mx-2">Sign Up</button>
+            </li></a> -->
+            
+    {% if user_code %}
+    <ol>
+      <li>To sign in, type <b>{{ user_code }}</b> into
+        <a href='{{ auth_uri }}'  target=_blank>{{ auth_uri }}</a>
+        to authenticate.
+      </li>
+      <li>And then <a href="{{ url_for('auth_response') }}">proceed</a>.</li>
+    </ol>
+    {% else %}
+  <!-- <script>
+      // Access the user_name variable in JavaScript
+      var userName = "{{ user_name }}";
+      localStorage.setItem("userName", userName);
+      console.log("User Name:", userName);
+      // Perform any actions with the user_name variable in your JavaScript code
+  </script> -->
+    <ul><li style="list-style-type: none;"><a href='{{ auth_uri }} ' style="border-radius: 100px !important; padding: 10px; width: 100px; background-color: #874caf;" class="btn btn-sm btn-success mx-2" >Sign In</a></li></ul>
+    {% endif %}
+          </ul>
+        </div>
+      </div>
+    </nav>
+  
+    
+
+
+      <!-- End Example Code -->
+
+
+      <!-- BODY div1 -->
+
+<div class="container content1">
+  <h1 id="aipera" data-aos="fade-down">Ask AI anything about <br> your curriculum</h1>
+  <!-- <div class="animated-div">
+    <p class="animate">Paragraph 1</p>
+    <p class="animate">Paragraph 2</p>
+    <p class="animate">Paragraph 3</p>
+  </div> -->
+  
+  <!-- <h1 class="ailine textGradient" data-aos="fade-down"   data-aos-duration="1300">Ask AI anything about your files</h1> -->
+  <h1 class="ailine textGradient" data-aos="fade-down" data-aos-duration="1500">Ask Questions & Get Answers About Any curriculum Instantly using CurricuAI.</h1>
+</div>
+<div class="container">
+<img width="100%" data-aos="zoom-in-up" class="imgConvo" src="/static/icons/convo.PNG" alt="Conversation screen">
+</div>
+
+
+<div class="small container">
+  <div class="learn">
+    <h1 data-aos="zoom-out-right">Learn Faster. 💪<br> Work Smarter. 🧠</h1>
+    <div class="tips" data-aos="zoom-out-right">
+      <span class="box1">
+        <span class="tick"><img src="https://uploads-ssl.webflow.com/63744cb0fa1468f8519ecaf7/63744cb0fa1468085c9ecb25_Check.svg" alt=""></span>
+        <span class="tickPera">
+          <h2>Summarize long papers</h2>
+          <p>Learn Faster. Turn complex technical papers into simply explained summaries. Discover new insights 100X faster.</p>
+        </span>
+      </span>
+      <span class="box1">
+        <span class="tick"><img src="https://uploads-ssl.webflow.com/63744cb0fa1468f8519ecaf7/63744cb0fa1468085c9ecb25_Check.svg" alt=""></span>
+        <span class="tickPera">
+          <h2>Summarize long papers</h2>
+          <p>Learn Faster. Turn complex technical papers into simply explained summaries. Discover new insights 100X faster.</p>
+        </span>
+      </span>
+      <span class="box1">
+        <span class="tick"><img src="https://uploads-ssl.webflow.com/63744cb0fa1468f8519ecaf7/63744cb0fa1468085c9ecb25_Check.svg" alt=""></span>
+        <span class="tickPera">
+          <h2>Summarize long papers</h2>
+          <p>Learn Faster. Turn complex technical papers into simply explained summaries. Discover new insights 100X faster.</p>
+        </span>
+      </span>
+    </div>
+    
+
+  </div>
+  <div class="imgSmall">
+<img width="100%" data-aos="fade-up-left" class="imgConvoSmall" src="/static/icons/convo.PNG" alt="Conversation screen">
+
+  </div>
+</div>
+<!-- CLosingBODY div1 -->
+
+
+<div class="container faqs">
+  <div class="accordion faqsFlex" id="accordionExample">
+    <div class="faqS1">
+    <div class="accordion-item faqWidth" data-aos="fade-down" data-aos-duration="1000">
+      <h2 class="accordion-header">
+        <button class="accordion-button collapsed faqbtn" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+          Is this AI TOOL free to use?
+        </button>
+      </h2>
+      <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+          Yes, you can create an account to use Humata for free. You have a 60 page limit for the free version on a range of different PDFs with maximum document size at 60 pages.
+        </div>
+      </div>
+    </div>
+    <div class="accordion-item faqWidth"data-aos="fade-down" data-aos-duration="1000">
+      <h2 class="accordion-header">
+        <button class="accordion-button collapsed faqbtn" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          How are my documents secured?
+        </button>
+      </h2>
+      <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+          Your documents are securely stored in encrypted cloud storage. We have stringent security protocols to provide the highest standards of safety to protect your information from any malicious intent. You own and control your data and the ability to delete any unwanted files on your dashboard.
+        </div>
+      </div>
+    </div>
+    </div><div class="faqS2">
+    <div class="accordion-item faqWidth"data-aos="fade-down" data-aos-duration="2000">
+      <h2 class="accordion-header">
+        <button class="accordion-button collapsed faqbtn" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          How does Humata work?
+        </button>
+      </h2>
+      <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+          Humata creates vector embeddings for semantic search and utilizes the latest advances in AI to synthesize results based on natural language commands.
+        </div>
+      </div>
+      </div>
+      <div class="accordion-item faqWidth"data-aos="fade-down" data-aos-duration="2000">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed faqbtn" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+            Can I ask questions across multiple documents simultaneously?
+          </button>
+        </h2>
+        <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            Yes, you can ask unlimited questions across multiple documents all at the same time with ease using Humata's Pro Plan. You can save your files on Humata too. Upgrade to Pro to synthesize results based on questions applied to multiple documents simultaneously.
+          </div>
+        </div>
+    </div>
+    </div>
+  </div>
+</div>
+
+<div class="footer container">
+  <div class="footerFlex">
+  <!-- <div class="footerLogo"><img src="/static/icons/R-removebg-preview.png" width="30%" alt=""><p>CurricuAI</p></div> -->
+  <div class="list"><ul class="footerUl container"><a href="#"><li>link 1</li></a><a href="#"><li>link 1</li></a><a href="#"><li>link 1</li></a><a href="#"><li>link 1</li></a></ul></div>
+  <div class="socialMedia"><ul class="footerSocials"><a href="#"><li>facebook</li></a> <a href="#"><li>Twitter</li></a> <a href="#"><li>LinkedIn</li></a></ul></div>
+  <div></div>
+</div>
+</div>
+
+
+    <script src="/static/js/index.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 1000,
+    });
+</script>
+  </body>
+</html>

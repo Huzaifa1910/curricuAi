@@ -1,0 +1,250 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+body{
+  background-color: hsl(235, 43%, 10%);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+/* Glassmorphism card effect */
+.blur{
+  backdrop-filter: blur(10px) saturate(50%) !important;
+  background-color: hsla(236, 73%, 20%, 0.599) !important;
+  padding: 30px 0px;
+}
+#aipera{
+    font-size: 5rem;
+    text-align: center;
+    font-weight: bolder;
+    margin-top: 30px;
+    color: white;
+  }
+.content1{
+  width: 80%;
+}
+.ailine{
+  text-align: center;
+  font-size: 3rem;
+  word-spacing: 6px;
+}
+.textGradient{
+  background: #A6CFB5;
+  background: linear-gradient(to right, #A6CFB5 0%, #586BB8 43%, #CF6891 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Define the animation for the sentence appearing */
+/* @keyframes enter {
+    0% {
+      opacity: 0;
+      transform: translateY(50px) rotate(5deg);
+    }
+    100% {background-color: 
+      opacity: 1;
+      transform: translateY(0) rotate(0);
+    }
+  }
+
+  Define the animation for the sentence disappearing
+  @keyframes exit {
+    0% {
+      opacity: 1;
+      transform: translateY(0) rotate(0);
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(-50px) rotate(-5deg);
+    }
+  }
+
+  Apply the animations to the paragraph tag
+  #sentences {
+    position: relative;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+  }
+
+  #sentences.enter {
+    animation-name: enter;
+  }
+
+  #sentences.exit {
+    animation-name: exit;
+  } */
+  .navLogo{
+    width: 10%;
+  }
+  .imgConvo{
+    box-shadow: 2px 3px 19px 0px rgba(0,0,0,0.75);
+    margin-top: 50px;
+    border-radius: 10px;
+  }
+  .small{
+    /* background-color: rgb(131, 68, 68); */
+    margin-top: 200px;
+    height: 500px;
+    display: flex;
+    justify-content: space-evenly !important;
+    align-items: center !important;
+  }
+  .imgSmall{
+    /* background-color: #CF6891; */
+    width: 40%;
+    border-radius: 25px;
+    overflow: hidden;
+    height: 225px;
+    transform: rotate(12deg);
+  }
+  .learn{
+
+    width: 50%;
+  }
+  .learn h1{
+    /* background-color: antiquewhite; */
+    font-size: 4rem;
+    font-weight: 700;
+  }
+  .box1{
+    display: flex;
+    width: 70%;
+  }
+  .tick{
+    background-color: #fff;
+    width: 90px;
+    height: 40px;
+    margin: 10px 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100px;
+  }
+  .tick img{
+    width: 15px;
+  }
+  .tickPera h2{
+    font-size: 22px;
+    font-weight: 700;
+    margin: 15px;
+  }
+  .tickPera p{
+    margin: 15px;
+    font-size: 18px;
+    width: 120%;
+  }
+  .faqs{
+    margin-top: 100px;
+    width: 100%;
+    height: 450px;
+  }
+  .faqs .accordion-body{
+    color: white;
+  }
+  .faqsFlex{
+    display: flex;
+  }
+  
+.faqS1{
+	width: 50% !important;
+}
+
+.faqS2{
+	width: 50% !important;
+}
+.faqWidth{
+  background: #A6CFB5;
+   background: linear-gradient(to right, #A6CFB5 0%, #586BB8 43%, #CF6891 100%);
+   margin: 20px;
+   border-radius: 5px;
+   border: none;
+  }
+  .faqbtn{  
+    font-weight: 700;
+    font-size: 18px;
+    border: none;
+    color: white !important;
+    
+    background: #A6CFB5;
+     background: linear-gradient(to right, #A6CFB5 0%, #586BB8 43%, #CF6891 100%);
+  
+
+}
+.footer{
+  margin-top: 20px;
+}
+.footerFlex{
+  width: 100%;
+  margin: auto;
+  display: flex;
+  height: 600px;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column ;
+}
+.footerLogo{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.footerLogo p{
+  font-size: 24px;
+  font-weight: 600;
+}
+.list{
+  width: 60%;
+}
+.footerUl{
+  position: relative;
+  top: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.footerUl a{
+  text-decoration: none;
+  list-style: none;
+  color: #696969;
+  font-weight: 600;
+}
+.footerUl a:hover{
+  color: #586BB8;
+  font-size: 18px;
+  transition: all 0.5s;
+}
+.socialMedia{
+  width: 60%;
+}
+.footerSocials{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.footerSocials a{
+  text-decoration: none;
+  list-style: none;
+  color: #696969;
+  font-weight: 600; 
+
+}
+.footerSocials a:hover{
+  color: #586BB8;
+  font-size: 18px;
+  transition: all 0.5s;
+}
+
+/* animation */
+.animate {
+  opacity: 0;
+  animation-name: fadeIn;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes fadeOut {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
