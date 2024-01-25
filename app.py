@@ -4,7 +4,7 @@ import requests
 from flask import Flask, redirect, render_template, request, session, url_for, jsonify
 from flask_session import Session
 from flask_cors import CORS
-from clarifai.client.model import Model
+# from clarifai.client.model import Model
 from pymongo import MongoClient #pip install pymongo
 import openai
 import os
