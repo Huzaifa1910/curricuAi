@@ -100,7 +100,7 @@ function getCompletion() {
     }
     message_text.push(userObj)
     console.log(message_text)
-    fetch('http://localhost:5000/get-completion', {
+    fetch('https://curricuai.azurewebsites.net/:5000/get-completion', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
