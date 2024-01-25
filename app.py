@@ -404,6 +404,8 @@ def getSubjectName():
     if auth.get_user():
         global user_name
         user_name = auth.get_user()["name"]
+        global user_email
+        user_email = auth.get_user()["preferred_username"]
     
     if request.method == "POST":
         data = request.json.get('subject_name','')
