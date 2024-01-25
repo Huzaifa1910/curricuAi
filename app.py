@@ -4,7 +4,7 @@ import requests
 from flask import Flask, redirect, render_template, request, session, url_for, jsonify
 from flask_session import Session
 from flask_cors import CORS
-# from clarifai.client.model import Model
+from clarifai.client.model import Model
 from pymongo import MongoClient #pip install pymongo
 import openai
 import os
@@ -253,7 +253,7 @@ def resToPromp(prom):
 CLARIFAI_PAT = os.getenv('CLARIFAI_PAT')
 # prompt = "Ultimate god form of goku from dragon ball z"
 inference_params = dict(quality="standard", size='1024x1024')
-# model = Model("https://clarifai.com/openai/dall-e/models/dall-e-3")
+model = Model("https://clarifai.com/openai/dall-e/models/dall-e-3")
 
 # Code 2 - OpenAI Setup
 openai.api_type = "azure"
@@ -305,14 +305,14 @@ def generate_image():
 
             prompt = resToPromp(prompt)
             # prompt = resToPromp(prompt)
-            # model_prediction = model.predict_by_bytes(prompt.encode(), input_type="text", inference_params=inference_params)
-            # output_base64 = model_prediction.outputs[0].data.image.base64
+            model_prediction = model.predict_by_bytes(prompt.encode(), input_type="text", inference_params=inference_params)
+            output_base64 = model_prediction.outputs[0].data.image.base64
 
             # Convert bytes to base64-encoded string
-            # output_base64_str = base64.b64encode(output_base64).decode('utf-8')
+            output_base64_str = base64.b64encode(output_base64).decode('utf-8')
 
-            # response_data = {'image_data': output_base64_str, 'success': True}
-            # return jsonify(response_data)
+            response_data = {'image_data': output_base64_str, 'success': True}
+            return jsonify(response_data)
         else:
             return jsonify({'error': 'Method not allowed', 'success': False}), 405
     except Exception as e:

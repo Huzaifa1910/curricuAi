@@ -46,7 +46,7 @@ function appendMessage(sender, message) {
     const parentDiv = e.parentNode;
     const messageText = getMessageText(parentDiv);
     console.log('Message Text:', messageText);
-    fetch('http://127.0.0.1:5000/generate-image', {
+    fetch('https://curricuai.azurewebsites.net/generate-image', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
