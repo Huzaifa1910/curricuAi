@@ -268,12 +268,12 @@ model = Model("https://clarifai.com/openai/dall-e/models/dall-e-3")
 # Code 2 - OpenAI Setup
 openai.api_type = "azure"
 openai.api_version = "2023-08-01-preview"
-openai.api_base = "https://curricuaimodel.openai.azure.com/"
+openai.api_base = "https://pdfdatagroup-ai-aiservices139948070.openai.azure.com/"
 openai.api_key = os.getenv("OPENAI_API_KEY")
 deployment_id = "gpt-35-turbo"
-search_endpoint = "https://servicesearchimaginecup.search.windows.net"
+search_endpoint = "https://finalsearchcurricuai.search.windows.net"
 search_key = os.getenv("SEARCH_KEY")
-search_index_name = "pdf3"
+search_index_name = "curricuaiindex"
 
 def reset_openai_sdk():
     openai.requestssession = None
