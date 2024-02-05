@@ -1,11 +1,13 @@
 import identity
 import identity.web
 import requests
+import smtplib
 from flask import Flask, redirect, render_template, request, session, url_for, jsonify
 from flask_session import Session
 from flask_cors import CORS
 from clarifai.client.model import Model
 from pymongo import MongoClient #pip install pymongo
+from email.mime.text import MIMEText
 import openai
 import os
 import base64
@@ -14,6 +16,14 @@ import json
 dotenv.load_dotenv()
 
 import app_config
+
+# Your email configuration
+SMTP_SERVER = 'smtp.gmail.com'
+SMTP_PORT = 587
+SMTP_USERNAME = 'huzaifaghori000@gmail.com'
+SMTP_PASSWORD = 'cvjm nvad rikz gkzn'
+SENDER_EMAIL = 'huzaifaghori000@gmail.com'
+RECIPIENT_EMAIL = 'habibsahab973@gmail.com'
 
 app = Flask(__name__)
 CORS(app)
@@ -268,9 +278,13 @@ search_index_name = "pdf3"
 def reset_openai_sdk():
     openai.requestssession = None
     # Set the default OpenAI SDK configuration
+    # openai.api_type = "azure"
+    # openai.api_version = "2023-08-01-preview"
+    # openai.api_base = "https://curricuaimodel.openai.azure.com/"
+    # openai.api_key = os.getenv("OPENAI_API_KEY")
     openai.api_type = "azure"
-    openai.api_version = "2023-08-01-preview"
-    openai.api_base = "https://curricuaimodel.openai.azure.com/"
+    openai.api_base = "https://pdfdatagroup-ai-aiservices139948070.openai.azure.com/"
+    openai.api_version = "2023-07-01-preview"
     openai.api_key = os.getenv("OPENAI_API_KEY")
 
 # Call this function to reset OpenAI SDK to the default configuration
@@ -516,6 +530,32 @@ def show_subjects():
         # update data
         # board_collection.update_one({}, {"$set": {"listed_boards": data}})
         return jsonify({"success": True, "data": board_subjects})
+
+# Form submission endpoint
+@app.route('/submit_form', methods=['POST'])
+def submit_form():
+    try:
+        # Get form data
+        data = request.form
+        print(data)
+        # Build email content
+        subject = 'JenOne AI Contact'
+        body = '\n'.join(f"{key}: {value}" for key, value in data.items())
+        msg = MIMEText(body)
+        msg['Subject'] = subject
+        msg['From'] = SENDER_EMAIL
+        msg['To'] = RECIPIENT_EMAIL
+
+        # Connect to SMTP server and send email
+        with smtplib.SMTP(SMTP_SERVER, SMTP_PORT) as server:
+            server.starttls()
+            server.login(SMTP_USERNAME, SMTP_PASSWORD)
+            print('Email sent')
+            server.sendmail(SENDER_EMAIL, RECIPIENT_EMAIL, msg.as_string())
+        return jsonify({'status': 'success'})
+    except Exception as e:
+        print(e)
+        return jsonify({'status': 'error', 'message': str(e)})
 
 
 @app.route("/getSubjects", methods=["GET","POST"])

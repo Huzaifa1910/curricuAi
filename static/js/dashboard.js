@@ -1,5 +1,4 @@
-
-
+const spinner = document.querySelector("#spinner");
 function goToStandards(e) {
   console.log(e.childNodes[1].childNodes[1].childNodes[0].textContent);
   fetch('/routToStandards', {
@@ -29,6 +28,7 @@ function goToStandards(e) {
 fetch('/getBoards')
     .then(response => response.json())
     .then(data => {
+      spinner.classList.add("spim")
       let listed_boards_list = []
       // Log the array in the console
       console.log('Listed Boards:', data);

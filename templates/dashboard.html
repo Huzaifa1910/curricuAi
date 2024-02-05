@@ -17,35 +17,45 @@
 </head>
 <body >
   <h2 class="banner">CurricuAI Dashboard</h2>
-<div class="container main">
-  <div class="conatiner divs">
-    <div class="sidediv">
-    <div class="div1">
-      <!-- <div class="img"><img src="/static/icons/image-jeremy.png" alt="jeremy image"></div> -->
-     <div class="info">
-      <span class="purs"> Welcome Back ! </span>
-      <h2 class="nme">{{user_name}}</h2>
+  <div class="container main">
+    <div class="conatiner divs">
+      <div class="sidediv">
+        <div class="div1">
+          <!-- <div class="img"><img src="/static/icons/image-jeremy.png" alt="jeremy image"></div> -->
+          <div class="info">
+            <span class="purs"> Welcome Back ! </span>
+            <h2 class="nme">{{user_name}}</h2>
+          </div>
+        </div>
+        <div class="opts">
+          <ul class="lists">
+            <!-- <li><a href="#" class="ranges" id="daily">Daily</a></li> -->
+            <!-- <li><a href="#" class="ranges" id="weekly">Weekly</a></li> -->
+            <li><a href="#" class="ranges">Settings</a></li>
+            <li style="list-style-type: none;"><a href="/logout" class="ranges">Logout</a></li>
+          </ul>
+          
+        </div>
+      </div>
+      <div class="allcards" id="boardsList">
+        <!-- SPINNER -->
+        <div id="spinner">
+         <div class="spinnerHead">
+           <div class="spinner-border text-primary" role="status">
+           
+           <!-- <span class="sr-only">Loading...</span> -->
+           </div>
+         </div>
+         </div>
+           <!-- SPINNER -->
+      </div>
     </div>
+    
   </div>
-  <div class="opts">
-    <ul class="lists">
-      <!-- <li><a href="#" class="ranges" id="daily">Daily</a></li> -->
-      <!-- <li><a href="#" class="ranges" id="weekly">Weekly</a></li> -->
-      <li><a href="#" class="ranges">Settings</a></li>
-      <li style="list-style-type: none;"><a href="/logout" class="ranges">Logout</a></li>
-    </ul>
   
-  </div>
-</div>
-<div class="allcards" id="boardsList">
-</div>
-    </div>
-      
-  </div>
-
-
-
-<!--   
+  
+  
+  <!--   
   <div class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
     Coded by <a href="https://www.frontendmentor.io/profile/Huzaifa1910">Muhammad Huzaifa Ghori</a>.

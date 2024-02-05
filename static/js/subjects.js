@@ -1,3 +1,4 @@
+const spinner = document.querySelector("#spinner");
 // console.log(boardData.val);
 fetch('/showSubjects', {
     method: 'POST',
@@ -8,6 +9,8 @@ fetch('/showSubjects', {
     })
     .then(response => response.json())
     .then(data => {
+        spinner.classList.add("spim")
+
         // Log the array in the console
         console.log('Listed Subjects:', data);
         // Sample array of board names

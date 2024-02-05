@@ -42,7 +42,10 @@ function appendMessage(sender, message) {
     return filteredTextNodes.join(' ');
 }
   function generateImage(e) {
-    
+    const loaderDiv = e.previousSibling.previousSibling;
+    loaderDiv.style.display = 'block';
+    // console.log('Loader Div:', loaderDiv);
+    e.style.display = 'none'; // Hide the button
     const parentDiv = e.parentNode;
     const messageText = getMessageText(parentDiv);
     console.log('Message Text:', messageText);
@@ -62,14 +65,21 @@ function appendMessage(sender, message) {
       .then(data => {
         if (data.success) {
           // Display the generated image in the gallery
+          loaderDiv.style.display = 'none'; // Hide the loader
           const gallery = parentDiv;
           const imageElement = document.createElement('img');
           console.log(data)
           imageElement.src = 'data:image/png;base64,' + data.image_data;
-          imageElement.style.width = '100%';
+          imageElement.style.width = '70%';
           gallery.appendChild(imageElement);
           e.remove(); // Remove the button
         } else {
+          loaderDiv.style.display = 'none'; // Hide the loader
+          e.style.display = 'block'; // Show the button again
+          const chatContainer = document.getElementById('chat')
+          
+          // add it in above the chat container
+          chatContainer.insertBefore(createAlert(data.error), chatContainer.firstChild);
           console.error('Error generating image:', data.error);
         }
       })
@@ -126,7 +136,20 @@ function getCompletion() {
         document.getElementById('chat').innerText = 'Error fetching completion2.';
     });
 }
+// write createLoader function to create following html
+//   <div class="spinner-grow spinner-grow-sm" role="status">
+//   <span class="sr-only">Loading...</span>
+// </div>
 
+function createLoader(){
+    const loader = document.createElement('div');
+    loader.className = 'spinner-grow spinner-grow-sm';
+    loader.setAttribute('role', 'status');
+    const span = document.createElement('span');
+    span.className = 'sr-only';
+    loader.appendChild(span);
+    return loader;
+}
 
 function createUserMessage(text) {
     const userMessageBold = document.createElement('strong');
@@ -151,17 +174,43 @@ function createBotMessage(text, showButton = false) {
     botMessage.innerHTML += `${text}`;
 
     if (showButton) {
+        const loadersDiv = document.createElement('div');
+        loadersDiv.className = 'loaders spim';
+        // add ID
+        loadersDiv.id = 'loaders';
         const generateImageButton = document.createElement('button');
         const generateImageButtonbreak = document.createElement('br');
         generateImageButton.className = 'generate-image-btn';
         generateImageButton.textContent = 'Generate Image';
         generateImageButton.setAttribute('onclick', 'generateImage(this)'); // You need to define the generateImage function
+        loadersDiv.appendChild(createLoader());
+        loadersDiv.appendChild(createLoader());
+        loadersDiv.appendChild(createLoader());
+        botMessage.appendChild(loadersDiv);
         botMessage.appendChild(generateImageButtonbreak);
-
         botMessage.appendChild(generateImageButton);
     }
 
     return botMessage;
 }
     
- 
+//  create this html
+/* <div class="alert alert-danger" role="alert">
+  A simple danger alert—check it out!
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>'
+  
+</div> */
+function createAlert(message) {
+    // const alertDiv = document.createElement('div');
+    // create dismissal button
+    // const alertPlaceholder = document.getElementById('chat')
+    const wrapper = document.createElement('div')
+    wrapper.innerHTML = [
+      `<div class="alert alert-danger alert-dismissible" role="alert">`,
+      `   <div>${message}</div>`,
+      '   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>',
+      '</div>'
+    ].join('')
+    // alertPlaceholder.append(wrapper)
+    return wrapper;
+}

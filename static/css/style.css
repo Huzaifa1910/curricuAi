@@ -198,4 +198,16 @@
       font-weight: 500;
       z-index: 0;
   }
-  
+  .loaders{
+      margin-top: 5px;
+      padding: 6px 10px;
+
+  }
+  .spim{
+    display: none;
+}
+.alert-danger{
+  position: absolute;
+  width: 72%;
+  text-align: center;
+}
