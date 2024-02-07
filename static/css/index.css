@@ -103,6 +103,7 @@ body{
     /* background-color: antiquewhite; */
     font-size: 4rem;
     font-weight: 700;
+    color: #fafafa;
   }
   .box1{
     display: flex;
@@ -124,12 +125,14 @@ body{
   .tickPera h2{
     font-size: 22px;
     font-weight: 700;
+    color: #fafafa;
     margin: 15px;
   }
   .tickPera p{
     margin: 15px;
     font-size: 18px;
     width: 120%;
+    color: #fafafa;
   }
   .faqs{
     margin-top: 100px;
@@ -169,7 +172,7 @@ body{
 
 }
 .footer{
-  margin-top: 20px;
+  margin-top: 400px;
 }
 .footerFlex{
   width: 100%;
