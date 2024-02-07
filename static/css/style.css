@@ -131,9 +131,40 @@
       border-radius: 4px;
       cursor: pointer;
     }
+    #startRecognition {
+      width: 18%;
+      background-color: #3b3074; /* Green button */
+      color: white;
+      padding: 8px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-left: 10px;
+      transition: background-color 0.3s ease; /* Smooth transition for background color change */
+  }
 
+  #startRecognition.recording {
+      background-color: #d9534f; /* Red color when recording */
+      animation: pulse 1.5s infinite; /* Pulse animation when recording */
+  }
+
+  @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); }
+  }
     .generate-image-btn {
       background-color: #874caf; /* Green button */
+      color: white;
+      padding: 6px 10px;
+      border: none;
+      border-radius: 4px;
+      margin-top: 5px;
+      cursor: pointer;
+     }
+    .play-btn {
+      background-color: #3b3074; /* Green button */
+      
       color: white;
       padding: 6px 10px;
       border: none;

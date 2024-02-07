@@ -1,6 +1,7 @@
 var message_text=[{"role": "system", "content": "You are a helpful assistant,You must use Urdu language and avoid the use of Hindi language."}
 ]
 async function fetchSubjectData() {
+  try{
   const response = await fetch('/api/get_subject_data');
   const subjectData = await response.json();
   message_text = subjectData.messages
@@ -22,6 +23,11 @@ async function fetchSubjectData() {
       console.log('Data not found');
   }
 }
+catch (error) {
+  console.error('Error:', error);
+  // document.getElementById('chat').innerText = 'Error fetching completion2.';
+}
+}
 
 fetchSubjectData();
 function appendMessage(sender, message) {
@@ -40,6 +46,28 @@ function appendMessage(sender, message) {
         .map(node => node.textContent.trim())
         .filter(text => text.length > 0); // Exclude empty text nodes
     return filteredTextNodes.join(' ');
+}
+function synthesize_speech(e) {
+  const messageText = getMessageText(e.parentNode);
+  console.log('Message Text:', messageText);
+  // fetch('http://localhost:5000/synthesize_speech', {
+  fetch('https://curricuai.azurewebsites.net/synthesize-speech', {
+      method: 'POST',
+      headers: {
+          'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ prompt: messageText}),
+  })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+      return response.json();
+    })
+    .then(data => {
+      console.log(data)
+    })
+    .catch(error => console.error('Error:', error.message));
 }
   function generateImage(e) {
     const loaderDiv = e.previousSibling.previousSibling;
@@ -99,8 +127,13 @@ function appendMessage(sender, message) {
 
 
 
-function getCompletion() {
-    const promptInput = document.getElementById('prompt').value;
+function getCompletion(audioMessage) {
+  if(!audioMessage){
+    var promptInput = document.getElementById('prompt').value;
+  }
+  else{
+    var promptInput = audioMessage;
+  }
     document.getElementById('prompt').value = ''; // Clear the input field
     const messagesContainer = document.getElementById('chat');
     messagesContainer.appendChild(createUserMessage(promptInput));
@@ -178,6 +211,12 @@ function createBotMessage(text, showButton = false) {
         loadersDiv.className = 'loaders spim';
         // add ID
         loadersDiv.id = 'loaders';
+        const playButton = document.createElement('button');
+        playButton.className = 'play-btn';
+        playButton.textContent = 'Play';
+        playButton.setAttribute('onclick', 'synthesize_speech(this)'); // You need to define the synthesize_speech function
+        // loadersDiv.appendChild(playButton);
+
         const generateImageButton = document.createElement('button');
         const generateImageButtonbreak = document.createElement('br');
         generateImageButton.className = 'generate-image-btn';
@@ -189,6 +228,7 @@ function createBotMessage(text, showButton = false) {
         botMessage.appendChild(loadersDiv);
         botMessage.appendChild(generateImageButtonbreak);
         botMessage.appendChild(generateImageButton);
+        botMessage.appendChild(playButton);
     }
 
     return botMessage;

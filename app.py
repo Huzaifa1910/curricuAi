@@ -13,6 +13,8 @@ import os
 import base64
 import dotenv
 import json
+import azure.cognitiveservices.speech as speechsdk
+
 dotenv.load_dotenv()
 
 import app_config
@@ -336,6 +338,7 @@ def generate_image():
 @app.route('/get-completion', methods=['POST'])
 def get_completion():
     setup_byod(deployment_id)
+    print("Deployment ID:",deployment_id)
     try:
         if request.method == 'POST':
             prompt = request.json.get('prompt', '')
@@ -603,6 +606,38 @@ def call_downstream_api():
     ).json()
     return render_template('display.html', result=api_result)
 
+
+
+
+@app.route('/synthesize_speech', methods=['GET','POST'])
+def synthesize_speech():
+    try:
+        request_data = request.get_json()
+        print(request_data['prompt'])
+        # Read values from environment variables
+        speech_key = os.getenv('SPEECH_KEY')
+        service_region = os.getenv('SERVICE_REGION')
+
+        # Create speech config
+        speech_config = speechsdk.SpeechConfig(subscription=speech_key, region=service_region)
+        speech_config.speech_synthesis_voice_name = "en-US-AvaNeural"
+
+        text = request_data['prompt']
+
+        # Create speech synthesizer
+        speech_synthesizer = speechsdk.SpeechSynthesizer(speech_config=speech_config)
+
+        # Synthesize speech
+        result = speech_synthesizer.speak_text_async(text).get()
+
+        # Check result
+        if result.reason == speechsdk.ResultReason.SynthesizingAudioCompleted:
+            return jsonify({"result": "Speech synthesized for text: {}".format(text)})
+        elif result.reason == speechsdk.ResultReason.Canceled:
+            cancellation_details = result.cancellation_details
+            return jsonify({"error": "Speech synthesis canceled", "details": cancellation_details.reason})
+    except Exception as e:
+        return jsonify({"error": str(e)})
 
 if __name__ == "__main__":
     app.run(host="localhost",port=5000, debug=True)
