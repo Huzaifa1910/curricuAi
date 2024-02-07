@@ -636,13 +636,20 @@ def synthesize_speech():
 
         # Create speech config
         speech_config = speechsdk.SpeechConfig(subscription=speech_key, region=service_region)
+        # Creates a speech synthesizer using file as audio output.
+        # Replace with your own audio file name.
+        file_name = "outputaudio.wav"
+        file_config = speechsdk.audio.AudioOutputConfig(filename=file_name)
+        speech_synthesizer = speechsdk.SpeechSynthesizer(speech_config=speech_config, audio_config=file_config)
+
+
         speech_config.speech_synthesis_voice_name = "en-US-AvaNeural"
 
         text = request_data['prompt']
 
         # Create speech synthesizer
-        speech_synthesizer = speechsdk.SpeechSynthesizer(speech_config=speech_config)
-
+        # speech_synthesizer = speechsdk.SpeechSynthesizer(speech_config=speech_config)
+    
         # Synthesize speech
         result = speech_synthesizer.speak_text_async(text).get()
 
