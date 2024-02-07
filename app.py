@@ -1,3 +1,4 @@
+from bson import ObjectId
 import identity
 import identity.web
 import requests
@@ -217,6 +218,21 @@ def update_subject_data(user_id, grade, subject, updated_data):
         return_document=True
     )
     return result
+
+@app.route('/api/nullMessageArray')
+def nullMessageArray():
+    user_id = user_email  # Replace with the actual user ID
+    grade = grade_data      # Replace with the actual grade
+    subject = subject_name  # Replace with the actual subject
+    
+    # Update data in MongoDB
+    updated_data = {"messages": None, "bot_tokens": 10, "user_tokens": 10}
+    result = update_subject_data(user_id, grade, subject, updated_data)
+    # Convert ObjectId to string in the response
+    result['_id'] = str(result.get('_id'))
+
+    return jsonify(result)
+
 
 # Configure MongoDB
 def get_subject_data(user_id, grade, subject):

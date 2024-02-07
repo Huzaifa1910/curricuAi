@@ -11,8 +11,8 @@ async function fetchSubjectData() {
   try{
   const response = await fetch('/api/get_subject_data');
   const subjectData = await response.json();
-  message_text = subjectData.messages
   if (subjectData && subjectData.messages) {
+      message_text = subjectData.messages
       console.log('Messages:', subjectData.messages);
       for(var i=0;i<subjectData.messages.length;i++){
         const messagesContainer = document.getElementById('chat');
@@ -58,7 +58,7 @@ function synthesize_speech(e) {
   const messageText = getMessageText(e.parentNode);
   console.log('Message Text:', messageText);
   // fetch('http://localhost:5000/synthesize_speech', {
-  fetch('https://curricuai.azurewebsites.net/synthesize-speech', {
+  fetch('https://curricuai.azurewebsites.net/synthesize_speech', {
       method: 'POST',
       headers: {
           'Content-Type': 'application/json',
@@ -132,6 +132,25 @@ function synthesize_speech(e) {
   }
 
 
+  function nullifyMessagesArray() {
+    const apiUrl = 'https://curricuai.azurewebsites.net/api/nullMessageArray';  // Adjust the URL based on your Flask app's route
+
+    // Make the API request
+    fetch(apiUrl, {
+        headers: {
+            'Content-Type': 'application/json',
+        }
+    })
+    .then(response => response.json())
+    .then(data => {
+      // Handle the API response data
+        alert("Chat session Cleared Successfully")
+        window.location.reload();
+    })
+    .catch(error => {
+        console.error('Error fetching from API: ', error);
+    });
+}
 
 
 function getCompletion(audioMessage) {
@@ -156,8 +175,8 @@ function getCompletion(audioMessage) {
     // i want to pop first element of list message_text or replace it with my first object
     message_text[0] = promptEng
     console.log(message_text)
-    fetch('http://localhost:5000/get-completion', {
-    // fetch('https://curricuai.azurewebsites.net/get-completion', {
+    // fetch('http://localhost:5000/get-completion', {
+    fetch('https://curricuai.azurewebsites.net/get-completion', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',

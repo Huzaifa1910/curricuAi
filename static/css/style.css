@@ -183,7 +183,7 @@
         align-items: center;
      }
      .logout-btn{
-      position: absolute;
+      /* position: absolute; */
       bottom: 10px;
      }
      .sessions{
@@ -241,4 +241,12 @@
   position: absolute;
   width: 72%;
   text-align: center;
+}
+.finalBtns{
+  /* height: 100%; */
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 10px;
 }
