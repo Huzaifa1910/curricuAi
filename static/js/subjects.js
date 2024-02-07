@@ -128,6 +128,7 @@ fetch('/showSubjects', {
       const subject_name = e.childNodes[1].childNodes[1].childNodes[0].textContent;
       console.log(subject_name)
       let cleanedSentence = subject_name.trim().replace(/\s+/g, ' ');
+      localStorage.setItem('subject_name', cleanedSentence);
       fetch('/getSubjectName', {
         method: 'POST',
         headers: {

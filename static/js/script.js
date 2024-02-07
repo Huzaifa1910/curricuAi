@@ -1,5 +1,12 @@
-var message_text=[{"role": "system", "content": "You are a helpful assistant,You must use Urdu language and avoid the use of Hindi language."}
-]
+try{
+  var subject_name = localStorage.getItem('subject_name');
+  var message_text=[{"role": "system", "content": `You are a dedicated ${subject_name} Assistant, here to provide the user with comprehensive information and assistance on all things only related to ${subject_name}.`}
+  ]
+}
+catch (error) {
+  console.error('Error:', error);
+  // document.getElementById('chat').innerText = 'Error fetching completion2.';
+}
 async function fetchSubjectData() {
   try{
   const response = await fetch('/api/get_subject_data');
@@ -141,9 +148,16 @@ function getCompletion(audioMessage) {
         "role": "user",
         "content": promptInput
     }
+    const promptEng = {
+        "role": "system",
+        "content": `You are a dedicated ${subject_name} Assistant, here to provide the user with comprehensive information and assistance on all things only related to ${subject_name}.`
+    }
     message_text.push(userObj)
+    // i want to pop first element of list message_text or replace it with my first object
+    message_text[0] = promptEng
     console.log(message_text)
-    fetch('https://curricuai.azurewebsites.net/get-completion', {
+    fetch('http://localhost:5000/get-completion', {
+    // fetch('https://curricuai.azurewebsites.net/get-completion', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
