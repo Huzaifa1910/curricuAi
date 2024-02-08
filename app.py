@@ -630,7 +630,6 @@ def synthesize_speech():
     try:
         request_data = request.get_json()
         print(request_data['prompt'])
-
         # Read values from environment variables
         speech_key = os.getenv('SPEECH_KEY')
         service_region = os.getenv('SERVICE_REGION')
@@ -641,11 +640,8 @@ def synthesize_speech():
 
         text = request_data['prompt']
 
-        # Create in-memory audio config
-        audio_config = speechsdk.audio.AudioOutputConfig(use_default_speaker=True)
-
-        # Create speech synthesizer with in-memory audio config
-        speech_synthesizer = speechsdk.SpeechSynthesizer(speech_config=speech_config, audio_config=audio_config)
+        # Create speech synthesizer
+        speech_synthesizer = speechsdk.SpeechSynthesizer(speech_config=speech_config)
 
         # Synthesize speech
         result = speech_synthesizer.speak_text_async(text).get()
@@ -658,7 +654,6 @@ def synthesize_speech():
             return jsonify({"error": "Speech synthesis canceled", "details": cancellation_details.reason})
     except Exception as e:
         return jsonify({"error": str(e)})
-
 
 if __name__ == "__main__":
     app.run(host="localhost",port=5000, debug=True)
