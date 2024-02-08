@@ -181,8 +181,8 @@ function getCompletion(audioMessage) {
     // i want to pop first element of list message_text or replace it with my first object
     message_text[0] = promptEng
     console.log(message_text)
-    fetch('http://localhost:5000/get-completion', {
-    // fetch('https://curricuai.azurewebsites.net/get-completion', {
+    // fetch('http://localhost:5000/get-completion', {
+    fetch('https://curricuai.azurewebsites.net/get-completion', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
