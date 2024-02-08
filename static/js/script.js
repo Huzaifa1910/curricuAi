@@ -133,13 +133,19 @@ function synthesize_speech(e) {
 
 
   function nullifyMessagesArray() {
+    // const apiUrl = 'http://localhost:5000/api/nullMessageArray';  // Adjust the URL based on your Flask app's route
     const apiUrl = 'https://curricuai.azurewebsites.net/api/nullMessageArray';  // Adjust the URL based on your Flask app's route
-
+    const promptEng = {
+      "role": "system",
+      "content": `You are a dedicated ${subject_name} Assistant, here to provide the user with comprehensive information and assistance on all things only related to ${subject_name}.`
+  }
     // Make the API request
     fetch(apiUrl, {
+      method: 'POST',
         headers: {
             'Content-Type': 'application/json',
-        }
+        },
+        body: JSON.stringify({ prompt: [promptEng] }),
     })
     .then(response => response.json())
     .then(data => {
@@ -175,8 +181,8 @@ function getCompletion(audioMessage) {
     // i want to pop first element of list message_text or replace it with my first object
     message_text[0] = promptEng
     console.log(message_text)
-    // fetch('http://localhost:5000/get-completion', {
-    fetch('https://curricuai.azurewebsites.net/get-completion', {
+    fetch('http://localhost:5000/get-completion', {
+    // fetch('https://curricuai.azurewebsites.net/get-completion', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',

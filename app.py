@@ -219,14 +219,16 @@ def update_subject_data(user_id, grade, subject, updated_data):
     )
     return result
 
-@app.route('/api/nullMessageArray')
+@app.route('/api/nullMessageArray', methods=['GET','POST'])
 def nullMessageArray():
     user_id = user_email  # Replace with the actual user ID
     grade = grade_data      # Replace with the actual grade
     subject = subject_name  # Replace with the actual subject
-    
+    request_data = request.get_json()
+    request_data = request_data['prompt']
+    # print(request_data)
     # Update data in MongoDB
-    updated_data = {"messages": None, "bot_tokens": 10, "user_tokens": 10}
+    updated_data = {"messages": request_data, "bot_tokens": 10, "user_tokens": 10}
     result = update_subject_data(user_id, grade, subject, updated_data)
     # Convert ObjectId to string in the response
     result['_id'] = str(result.get('_id'))
