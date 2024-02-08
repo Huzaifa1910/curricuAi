@@ -57,8 +57,8 @@ function appendMessage(sender, message) {
 function synthesize_speech(e) {
   const messageText = getMessageText(e.parentNode);
   console.log('Message Text:', messageText);
-  fetch('http://localhost:5000/synthesize_speech', {
-  // fetch('https://curricuai.azurewebsites.net/synthesize_speech', {
+  // fetch('http://localhost:5000/synthesize_speech', {
+  fetch('https://curricuai.azurewebsites.net/synthesize_speech', {
       method: 'POST',
       headers: {
           'Content-Type': 'application/json',
